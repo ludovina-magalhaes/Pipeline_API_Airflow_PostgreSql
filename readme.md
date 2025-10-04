@@ -107,6 +107,7 @@ O Apache Airflow é uma ferramenta usada para orquestração de workflows, basea
 A forma mais simples de instalar e executar o Airflow é com Docker e Docker Compose. A arquitetura típica inclui:
 <img width="886" height="361" alt="image" src="https://github.com/user-attachments/assets/14ec6fd0-876f-4dad-9c7a-7314638449a7" />
 
+
 3. Funcionamento de um DAG no Airflow
 Os DAGs são definidos em ficheiros Python.
 Exemplo de um pipeline ETL que extrai dados da API e carrega para uma base Postgres:
@@ -122,6 +123,7 @@ Para incluir bibliotecas necessárias no ambiente Airflow (ex: psycopg2, hugging
 •	Dockerfile: copia o requirements.txt e instala dependências com pip.
 •	docker-compose.yaml: ajustado para usar a build personalizada, garantindo que a imagem do Airflow tenha todas as dependências.
 <img width="886" height="339" alt="image" src="https://github.com/user-attachments/assets/d8f8f246-d272-4163-983a-25a3c9386874" />
+
 
 PostgreSQL e PG Admin no Pipeline Airflow
 O PostgreSQL (Psql/Postgress) e o PG Admin são componentes essenciais para hospedar e gerir a base de dados utilizada pelo Apache Airflow em pipelines ETL.
@@ -145,8 +147,10 @@ o	Nome do Host: postgress
 o	Credenciais: Username airflow, Password airflow
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
+
 ##Modelo RelacionalModelo Relacional de Banco de Dados de Usuários
 <img width="1152" height="1150" alt="Untitled (1)" src="https://github.com/user-attachments/assets/b4ce87fe-ef73-475c-a976-c0fc9ed618e5" />
+
 
 ###Descrição das Tabelas
 dim_user – Informações pessoais e de contato.
@@ -161,6 +165,7 @@ Modelo adaptável conforme necessidade do projeto.
 Tipos de dados podem variar com o SGBD.
 Utilize hash + salt para segurança das senhas.
 etl_timestamp ajuda a rastrear origem e atualizações dos dados.
+
 
 ## 🔧 Como usar
 
