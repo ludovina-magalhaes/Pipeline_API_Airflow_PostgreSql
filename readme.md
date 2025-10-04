@@ -145,6 +145,160 @@ o	Nome do Host: postgress
 o	Credenciais: Username airflow, Password airflow
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
+Modelo Relacional:
+<img width="1152" height="1150" alt="Untitled (1)" src="https://github.com/user-attachments/assets/b4ce87fe-ef73-475c-a976-c0fc9ed618e5" />
+Modelo Relacional de Banco de Dados de Usuários
+
+Este modelo descreve a estrutura de um banco de dados projetado para armazenar e gerir informações de usuários. Ele é composto por tabelas específicas, interligadas para garantir integridade e consistência dos dados.
+
+Tabelas Principais
+dim_user
+
+Armazena informações demográficas e de contato dos usuários.
+
+Campos:
+
+user_id (VARCHAR, PK): Identificador único do usuário.
+
+gender (VARCHAR): Gênero.
+
+title (VARCHAR): Título (ex: Sr., Sra.).
+
+first_name (VARCHAR): Primeiro nome.
+
+last_name (VARCHAR): Sobrenome.
+
+email (VARCHAR): E-mail.
+
+phone (VARCHAR): Telefone fixo.
+
+cell (VARCHAR): Telemóvel.
+
+nat (VARCHAR): Nacionalidade.
+
+dob_date (DATE): Data de nascimento.
+
+dob_age (INT): Idade.
+
+registered_date (DATE): Data de registo.
+
+registered_age (INT): Idade no registo.
+
+dim_address
+
+Contém os endereços dos usuários.
+
+Campos:
+
+address_id (SERIAL, PK): Identificador do endereço.
+
+user_id (VARCHAR, FK): Referência ao user_id de dim_user.
+
+street_number (INT): Número da rua.
+
+street_name (VARCHAR): Nome da rua.
+
+city (VARCHAR): Cidade.
+
+state (VARCHAR): Estado.
+
+country (VARCHAR): País.
+
+postcode (VARCHAR): Código postal.
+
+latitude (NUMERIC): Latitude.
+
+longitude (NUMERIC): Longitude.
+
+timezone_offset (VARCHAR): Deslocamento do fuso horário.
+
+timezone_description (VARCHAR): Descrição do fuso horário.
+
+dim_login
+
+Guarda informações de login dos usuários.
+
+Campos:
+
+login_id (SERIAL, PK): Identificador do login.
+
+user_id (VARCHAR, FK): Referência ao user_id de dim_user.
+
+username (VARCHAR): Nome de usuário.
+
+password (VARCHAR): Senha (hash recomendado).
+
+salt (VARCHAR): Salt para segurança.
+
+md5 (VARCHAR), sha1 (VARCHAR), sha256 (VARCHAR): Hashes da senha.
+
+dim_id
+
+Regista diferentes tipos de identificação de usuários.
+
+Campos:
+
+id_id (SERIAL, PK): Identificador do ID.
+
+user_id (VARCHAR, FK): Referência ao user_id de dim_user.
+
+id_name (VARCHAR): Tipo de ID (ex: RG, CPF).
+
+id_value (VARCHAR): Valor do ID.
+
+dim_picture
+
+Armazena fotos de perfil dos usuários.
+
+Campos:
+
+picture_id (SERIAL, PK): Identificador da foto.
+
+user_id (VARCHAR, FK): Referência ao user_id de dim_user.
+
+picture_large (VARCHAR): URL da foto grande.
+
+picture_medium (VARCHAR): URL da foto média.
+
+picture_thumbnail (VARCHAR): URL da miniatura.
+
+fact_user
+
+Tabela de fatos que conecta todas as dimensões e regista eventos de usuários.
+
+Campos:
+
+fact_id (SERIAL, PK): Identificador do fato.
+
+user_id (VARCHAR, FK): Referência a dim_user.
+
+address_id (INT, FK): Referência a dim_address.
+
+login_id (INT, FK): Referência a dim_login.
+
+id_id (INT, FK): Referência a dim_id.
+
+picture_id (INT, FK): Referência a dim_picture.
+
+etl_timestamp (TIMESTAMP): Data e hora da extração e carga.
+
+Relacionamentos
+
+fact_user centraliza a conexão entre todas as dimensões.
+
+As chaves estrangeiras garantem integridade referencial.
+
+Cada tabela de dimensão detalha aspectos específicos do usuário: dados pessoais, endereço, login, identificação e fotos.
+
+Notas
+
+Este modelo é um exemplo e pode ser adaptado conforme a necessidade do projeto.
+
+Tipos de dados podem variar conforme o SGBD.
+
+Para segurança, utilize hash e salt adequados para senhas.
+
+etl_timestamp é útil para rastrear atualizações e origem dos dados.
 
 ## 🔧 Como usar
 
