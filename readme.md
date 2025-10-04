@@ -152,12 +152,12 @@ o	Credenciais: Username airflow, Password airflow
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
 
-##Modelo RelacionalModelo Relacional de Banco de Dados de Usuários
+### Modelo RelacionalModelo Relacional de Banco de Dados de Usuários
 
 <img width="1152" height="1150" alt="Untitled (1)" src="https://github.com/user-attachments/assets/b4ce87fe-ef73-475c-a976-c0fc9ed618e5" />
 
 
-###Descrição das Tabelas
+### Descrição das Tabelas
 dim_user – Informações pessoais e de contato.
 dim_address – Endereço completo do usuário.
 dim_login – Dados de autenticação, incluindo hashes de senha.
@@ -165,7 +165,7 @@ dim_id – Tipos e valores de identificação do usuário.
 dim_picture – URLs das fotos de perfil (grande, média e miniatura).
 fact_user – Conecta todas as dimensões e regista eventos; inclui etl_timestamp.
 
-###Notas:
+### Notas:
 Modelo adaptável conforme necessidade do projeto.
 Tipos de dados podem variar com o SGBD.
 Utilize hash + salt para segurança das senhas.
@@ -180,18 +180,18 @@ etl_timestamp ajuda a rastrear origem e atualizações dos dados.
    cd Pipeline_API_Airflow_PostgreSql
 
 
-Criar ficheiro .env com configurações necessárias, por exemplo:
+###  Criar ficheiro .env com configurações necessárias, por exemplo:
 POSTGRES_USER=usuario
 POSTGRES_PASSWORD=senha
 POSTGRES_DB=nome_db
 API_URL=https://exemplo.com/api
 
 
- Testes & Debugging
+###  Testes & Debugging
 Ver logs do Airflow para verificar execução das tasks
 Confirmar ligação à base de dados PostgreSQL
 Se houver falha de API: examinar endpoint, headers e dados retornados
 
-Licença
+###  Licença
 Este projeto está sob a licença MIT (ou outra que escolheres) — podes modificar para a licença que preferires.
 
