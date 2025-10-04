@@ -1,0 +1,99 @@
+-- Tabela principal de utilizadores
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Gender VARCHAR(10),
+    Title VARCHAR(10),
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100) UNIQUE,
+    DOB DATE,
+    RegisteredDate DATE,
+    Phone VARCHAR(20),
+    Cell VARCHAR(20),
+    Nat VARCHAR(5)
+);
+
+-- Países
+CREATE TABLE Countries (
+    CountryID INT PRIMARY KEY AUTO_INCREMENT,
+    CountryName VARCHAR(100) UNIQUE
+);
+
+-- Estados
+CREATE TABLE States (
+    StateID INT PRIMARY KEY AUTO_INCREMENT,
+    StateName VARCHAR(100),
+    CountryID INT,
+    FOREIGN KEY (CountryID) REFERENCES Countries(CountryID)
+);
+
+-- Cidades
+CREATE TABLE Cities (
+    CityID INT PRIMARY KEY AUTO_INCREMENT,
+    CityName VARCHAR(100),
+    StateID INT,
+    FOREIGN KEY (StateID) REFERENCES States(StateID)
+);
+
+-- Endereços
+CREATE TABLE Addresses (
+    AddressID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    StreetNumber INT,
+    StreetName VARCHAR(100),
+    CityID INT,
+    Postcode VARCHAR(20),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (CityID) REFERENCES Cities(CityID)
+);
+
+-- Coordenadas
+CREATE TABLE Coordinates (
+    CoordID INT PRIMARY KEY AUTO_INCREMENT,
+    AddressID INT,
+    Latitude DECIMAL(9,6),
+    Longitude DECIMAL(9,6),
+    FOREIGN KEY (AddressID) REFERENCES Addresses(AddressID)
+);
+
+-- Timezones
+CREATE TABLE Timezones (
+    TimezoneID INT PRIMARY KEY AUTO_INCREMENT,
+    AddressID INT,
+    Offset VARCHAR(10),
+    Description VARCHAR(100),
+    FOREIGN KEY (AddressID) REFERENCES Addresses(AddressID)
+);
+
+-- Logins
+CREATE TABLE Logins (
+    LoginID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    UUID CHAR(36),
+    Username VARCHAR(50) UNIQUE,
+    Password VARCHAR(100),
+    Salt VARCHAR(50),
+    MD5 CHAR(32),
+    SHA1 CHAR(40),
+    SHA256 CHAR(64),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+-- Documentos
+CREATE TABLE Documents (
+    DocID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    ID_Name VARCHAR(20),
+    ID_Value VARCHAR(50) UNIQUE,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+-- Imagens
+CREATE TABLE Pictures (
+    PictureID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    Large VARCHAR(255),
+    Medium VARCHAR(255),
+    Thumbnail VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
