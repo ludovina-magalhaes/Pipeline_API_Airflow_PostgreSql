@@ -105,10 +105,11 @@ O Apache Airflow é uma ferramenta usada para orquestração de workflows, basea
 •	Pipelines ETL: esta estrutura torna o Airflow ideal para processos de Extração, Transformação e Carga (ETL), seguindo a sequência Extrair → Transformar → Carregar.
 2. Arquitetura do Airflow com Docker
 A forma mais simples de instalar e executar o Airflow é com Docker e Docker Compose. A arquitetura típica inclui:
+
 <img width="886" height="361" alt="image" src="https://github.com/user-attachments/assets/14ec6fd0-876f-4dad-9c7a-7314638449a7" />
 
 
-3. Funcionamento de um DAG no Airflow
+4. Funcionamento de um DAG no Airflow
 Os DAGs são definidos em ficheiros Python.
 Exemplo de um pipeline ETL que extrai dados da API e carrega para uma base Postgres:
 1.	Extract Task - obtém dados (ex: 50 modelos mais recentes), envia os brutos para o XCOM.
@@ -122,6 +123,7 @@ Para incluir bibliotecas necessárias no ambiente Airflow (ex: psycopg2, hugging
 •	requirements.txt: lista de pacotes Python.
 •	Dockerfile: copia o requirements.txt e instala dependências com pip.
 •	docker-compose.yaml: ajustado para usar a build personalizada, garantindo que a imagem do Airflow tenha todas as dependências.
+
 <img width="886" height="339" alt="image" src="https://github.com/user-attachments/assets/d8f8f246-d272-4163-983a-25a3c9386874" />
 
 
@@ -146,10 +148,12 @@ o	Porta: 5050
 o	Nome do Host: postgress
 o	Credenciais: Username airflow, Password airflow
 
+
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
 
 ##Modelo RelacionalModelo Relacional de Banco de Dados de Usuários
+
 <img width="1152" height="1150" alt="Untitled (1)" src="https://github.com/user-attachments/assets/b4ce87fe-ef73-475c-a976-c0fc9ed618e5" />
 
 
