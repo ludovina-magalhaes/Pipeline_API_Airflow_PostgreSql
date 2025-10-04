@@ -145,50 +145,10 @@ o	Nome do Host: postgress
 o	Credenciais: Username airflow, Password airflow
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
-Modelo Relacional:
+##Modelo RelacionalModelo Relacional de Banco de Dados de Usuários
 <img width="1152" height="1150" alt="Untitled (1)" src="https://github.com/user-attachments/assets/b4ce87fe-ef73-475c-a976-c0fc9ed618e5" />
-Modelo Relacional de Banco de Dados de Usuários
 
-         +-----------+
-         | dim_user  |
-         +-----------+
-         | user_id PK|
-         | first_name|
-         | last_name |
-         | gender    |
-         | email     |
-         | ...       |
-         +-----------+
-              |
-              | 1
-              | 
-              | N
-         +-----------+
-         | fact_user |
-         +-----------+
-         | fact_id PK|
-         | user_id FK|
-         | address_id FK
-         | login_id FK
-         | id_id FK
-         | picture_id FK
-         | etl_timestamp
-         +-----------+
-        /     |       \
-       /      |        \
-      /       |         \
-+-----------+ +-----------+ +-----------+ +-----------+ 
-| dim_address| | dim_login | | dim_id    | | dim_picture|
-+-----------+ +-----------+ +-----------+ +-----------+
-| address_id PK | login_id PK | id_id PK | picture_id PK|
-| user_id FK    | user_id FK  | user_id FK| user_id FK  |
-| street_name   | username    | id_name   | picture_large|
-| city          | password    | id_value  | picture_medium|
-| state         | salt        |           | picture_thumbnail|
-| country       | md5/sha1/...|           |             |
-+--------------+ +------------+ +---------+ +-----------+
-Descrição das Tabelas
-
+###Descrição das Tabelas
 dim_user – Informações pessoais e de contato.
 dim_address – Endereço completo do usuário.
 dim_login – Dados de autenticação, incluindo hashes de senha.
@@ -196,14 +156,10 @@ dim_id – Tipos e valores de identificação do usuário.
 dim_picture – URLs das fotos de perfil (grande, média e miniatura).
 fact_user – Conecta todas as dimensões e regista eventos; inclui etl_timestamp.
 
-Notas
-
+###Notas:
 Modelo adaptável conforme necessidade do projeto.
-
 Tipos de dados podem variar com o SGBD.
-
 Utilize hash + salt para segurança das senhas.
-
 etl_timestamp ajuda a rastrear origem e atualizações dos dados.
 
 ## 🔧 Como usar
