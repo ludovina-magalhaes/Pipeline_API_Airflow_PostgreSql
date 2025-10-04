@@ -145,6 +145,7 @@ o	Porta: 5050
 •	Servidor PG Admin: Após aceder à interface (localhost:5050), adicionar um novo servidor:
 o	Nome do Host: postgress
 o	Credenciais: Username airflow, Password airflow
+
 <img width="489" height="797" alt="image" src="https://github.com/user-attachments/assets/86772e40-aff1-4a1c-8c90-0eafb97de5a8" />
 
 
