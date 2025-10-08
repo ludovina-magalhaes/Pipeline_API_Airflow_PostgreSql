@@ -180,11 +180,11 @@ etl_timestamp ajuda a rastrear origem e atualizações dos dados.
    cd Pipeline_API_Airflow_PostgreSql
 
 
-###  Criar ficheiro .env com configurações necessárias, por exemplo:
-POSTGRES_USER=usuario
-POSTGRES_PASSWORD=senha
-POSTGRES_DB=nome_db
-API_URL=https://exemplo.com/api
+###  Criar ficheiro .env com configurações necessárias, por exemplo: 
+POSTGRES_USER=usuario     
+POSTGRES_PASSWORD=senha      
+POSTGRES_DB=nome_db      
+API_URL=https://exemplo.com/api      
 
 
 ###  Testes & Debugging
