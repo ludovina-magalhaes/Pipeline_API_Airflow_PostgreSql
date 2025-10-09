@@ -10,7 +10,7 @@ Arquitetura:
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 | Pasta / Ficheiro | Descrição |
 |------------------|-----------|
@@ -26,7 +26,7 @@ Arquitetura:
 
 ---
 
-## 🛠️ Requisitos
+## Requisitos
 
 - Docker & Docker Compose  
 - Python 3.x  
