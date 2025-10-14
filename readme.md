@@ -1,5 +1,5 @@
 
-# Pipeline_API_Airflow_PostgreSql
+# Airflow API Data Pipeline
 
 Este repositório contém um pipeline orquestrado no **Airflow** que interage com uma API e persiste dados numa base de dados **PostgreSQL**.
 Criação de um pipeline de dados que extrai informações de uma API, transforma os dados com Python e carrega em um banco de dados
